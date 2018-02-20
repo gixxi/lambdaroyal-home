@@ -73,11 +73,10 @@ js() {
     dnf install -y nodejs
     wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
     dnf install yarn
-    ln -s /usr/bin/nodejs /usr/bin/node
-
-    dnf install rubygems gcc-c++ ruby-devel
-    gem install less
-    gem install therubyracer
+    yarn config set prefix /opt/yarn
+    dnf install v8
+    yarn global add less
+    ln -s /opt/yarn/bin/lessc /usr/local/bin/lessc
 }
 
 js
